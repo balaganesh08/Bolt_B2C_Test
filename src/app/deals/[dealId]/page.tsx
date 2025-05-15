@@ -8,6 +8,13 @@ import MilestoneProgressBar from "@/components/MilestoneProgressBar";
 import DealCustomerHeader from "@/components/DealCustomerHeader";
 import MilestoneStepsList from "@/components/MilestoneStepsList";
 import { stageConfigs } from "@/constants/milestoneSteps";
+import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 function DealHeader() {
   return (
@@ -35,8 +42,18 @@ function DealMilestones() {
           <div style={{ fontWeight: 600, color: "#0f172a", marginBottom: 8 }}>Milestones</div>
           <MilestoneProgressBar currentStage="Conversion" progress={15} />
         </div>
-        <div style={{ color: "#64748b", fontSize: 14 }}>
-          15% progressed ⓘ
+        <div style={{ color: "#64748b", fontSize: 14, display: "flex", alignItems: "center", gap: 4 }}>
+          15% progressed
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <HelpCircle size={16} />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Progress is calculated based on completed milestones</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
       <div style={{ marginTop: 16 }}>
@@ -72,7 +89,6 @@ function DealSidebar() {
         right: 0,
       }}
     >
-      {/* Tabs */}
       <div style={{ display: "flex", borderBottom: "1px solid #e2e8f0", padding: "0 24px", marginTop: 0 }}>
         <button
           style={{
@@ -120,10 +136,10 @@ function DealSidebar() {
         </button>
       </div>
       <div style={{ flex: 1, overflowY: "auto", padding: 24 }}>
-        {/* Payment Section */}
         <div style={{ marginBottom: 32 }}>
-          <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 12 }}>
-            <span style={{ marginRight: 8 }}>▼</span>Payment
+          <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
+            <ChevronDown size={20} />
+            Payment
           </div>
           <div style={{ color: "#64748b", fontSize: 14, marginBottom: 2 }}>Estimated order value</div>
           <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 12 }}>₹ 25,000.00</div>
@@ -157,10 +173,10 @@ function DealSidebar() {
             ₹ Request Payment
           </button>
         </div>
-        {/* Project Section */}
         <div>
-          <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 12 }}>
-            <span style={{ marginRight: 8 }}>▼</span>Project
+          <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
+            <ChevronDown size={20} />
+            Project
           </div>
           <div style={{ color: "#64748b", fontSize: 14, marginBottom: 2 }}>Stage</div>
           <div style={{ fontWeight: 600, marginBottom: 10 }}>Lead</div>
