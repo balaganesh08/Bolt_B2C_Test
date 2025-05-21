@@ -1,7 +1,5 @@
-"use client";
-
-import Home from "../screens/Home/Home";
+import Dashboard from "../features/layoutTemplates/Dashboard";
 
 export default function Page() {
-  return <Home />;
+  return <Dashboard />;
 }

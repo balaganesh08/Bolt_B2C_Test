@@ -1,14 +1,14 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/uiElements/button";
+import { Input } from "@/components/uiElements/input";
 import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/uiElements/dialog";
 import { FormStepProps } from "./types";
 
 export function CustomerForm({ formData, onInputChange, onNext, onClose }: FormStepProps) {

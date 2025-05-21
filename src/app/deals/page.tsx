@@ -1,7 +1,5 @@
-"use client";
-
-import { NewLead } from "../../screens/NewLead/NewLead";
+import { DealsPage as DealsPageComponent } from "@/features/pageComponents/Deals/DealsPage";
 
 export default function DealsPage() {
-  return <NewLead />;
+  return <DealsPageComponent />;
 }

@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/uiElements/button";
 import {
   DialogContent,
   DialogClose,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/components/uiElements/dialog";
 
 import { FormData } from "./types";
 import { StepIndicator } from "./StepIndicator";

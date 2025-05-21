@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./styles.module.css";
 
 interface MilestoneProgressBarProps {
   currentStage?: string;
@@ -17,32 +18,36 @@ const stages = [
 
 function getStageImage(stage: string, idx: number, currentStage: string, progress: number, lost: boolean) {
   const currentIdx = stages.indexOf(currentStage);
+  const isLastStage = stage === "Closed";
+  
   if (lost && stage === "Lost") {
     return "/milestone-lost.png";
   }
-  if (stage === "Closed" && progress === 100) {
-    return "/milestone-completed.png";
-  }
-  if (idx < currentIdx) {
+  // If it's the last stage and progress is 100%, show completed
+  if (isLastStage && progress === 100) {
     return "/milestone-completed-bg.png";
   }
+  // If it's the current stage and not the last stage, show ongoing
   if (idx === currentIdx) {
     return "/milestone-ongoing.png";
   }
+  // If it's before the current stage, show completed
+  if (idx < currentIdx) {
+    // For stages after New Lead (index 0), use a different completed image
+    return idx > 0 ? "/Completed.png" : "/milestone-completed-bg.png";
+  }
+  // Otherwise, show upcoming
   return "/milestone-upcoming.png";
 }
 
-function getStageTextColor(idx: number, currentStage: string) {
+function getStageTextClassName(idx: number, currentStage: string, progress: number) {
   const currentIdx = stages.indexOf(currentStage);
-  if (idx < currentIdx) return "#fff";
-  if (idx === currentIdx) return "#22223B";
-  return "#64748b";
-}
-
-function getStageFontWeight(idx: number, currentStage: string) {
-  const currentIdx = stages.indexOf(currentStage);
-  if (idx === currentIdx) return 600;
-  return 400;
+  const isLastStage = stages[idx] === 'Closed';
+  
+  if (isLastStage && progress === 100) return styles.stageTextCompleted;
+  if (idx < currentIdx) return styles.stageTextCompleted;
+  if (idx === currentIdx) return styles.stageTextCurrent;
+  return styles.stageTextUpcoming;
 }
 
 const MilestoneProgressBar: React.FC<MilestoneProgressBarProps> = ({
@@ -50,48 +55,23 @@ const MilestoneProgressBar: React.FC<MilestoneProgressBarProps> = ({
   progress = 15,
   lost = false,
 }) => (
-  <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+  <div className={styles.container}>
     {stages.map((stage, idx) => (
       <div
         key={stage}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-        }}
+        className={styles.stageContainer}
       >
         <img
           src={getStageImage(stage, idx, currentStage, progress, lost)}
           alt={stage}
-          style={{
-            height: 24,
-            width: 176,
-            objectFit: "contain",
-            display: "block",
-          }}
+          className={styles.stageImage}
         />
         <span
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: 176,
-            height: 24,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: getStageFontWeight(idx, currentStage),
-            fontSize: 16,
-            color: getStageTextColor(idx, currentStage),
-            letterSpacing: 0.2,
-            pointerEvents: "none",
-            userSelect: "none",
-            zIndex: 1,
-          }}
+          className={`${styles.stageText} ${getStageTextClassName(idx, currentStage, progress)}`}
         >
           {stage}
         </span>
-        {idx < stages.length - 1 && <span style={{ width: 0 }} />}
+        {idx < stages.length - 1 && <span className={styles.spacer} />}
       </div>
     ))}
   </div>

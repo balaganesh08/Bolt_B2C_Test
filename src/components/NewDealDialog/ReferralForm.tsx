@@ -1,14 +1,14 @@
 "use client";
 
 import { ChevronLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/uiElements/button";
+import { Input } from "@/components/uiElements/input";
 import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/uiElements/dialog";
 import { FormStepProps } from "./types";
 
 export function ReferralForm({ formData, onInputChange, onBack, onSubmit }: FormStepProps & { onSubmit: () => void }) {
@@ -93,13 +93,13 @@ export function ReferralForm({ formData, onInputChange, onBack, onSubmit }: Form
         )}
       </div>
 
-      <DialogFooter className="flex justify-end absolute bottom-4 right-4">
+      <DialogFooter className="flex justify-end absolute bottom-[-1] right-4">
         <Button variant="outline" className="mr-2" onClick={onBack}>
           <ChevronLeft className="mr-2 h-4 w-4" />
-          Back
+          Cancel
         </Button>
         <Button variant="default" className="bg-primary-700" onClick={onSubmit}>
-          Submit
+          Create
         </Button>
       </DialogFooter>
     </>

@@ -1,1 +1,0 @@
-export { FrameWrapperSection } from "./FrameWrapperSection";

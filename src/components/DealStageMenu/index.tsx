@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../uiElements/dropdown-menu";
 import { 
   ArrowRight,
   Clock,
@@ -18,7 +18,7 @@ import {
   Trash2,
   MessageSquare
 } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../uiElements/button";
 
 type StageNames = 
   | "New Lead"

@@ -1,4 +1,4 @@
-import { StageConfig } from "@/types/milestones";
+import { StageConfig } from "@/typeDefinitions/milestoneTypes";
 
 export const stageConfigs: Record<string, StageConfig> = {
   "New Lead": {
@@ -63,23 +63,23 @@ export const stageConfigs: Record<string, StageConfig> = {
     totalSteps: 4,
     steps: [
       {
-        title: "Schedule site survey",
-        description: "Plan and confirm site visit with the customer",
+        title: "Request to schedule a final survey",
+        description: "Send a request to survey team for the final measurements",
         completed: false
       },
       {
-        title: "Collect site measurements",
-        description: "Take detailed measurements at the site",
+        title: "Final quotation",
+        description: "Get atleast 50% of the payment done to move the order to production",
         completed: false
       },
       {
-        title: "Document site conditions",
-        description: "Record and photograph site conditions",
+        title: "Share quotation",
+        description: "Quotation once received, review it and send it to the customer.",
         completed: false
       },
       {
-        title: "Submit survey report",
-        description: "Complete and submit the detailed survey report",
+        title: "Advance payment (50%)",
+        description: "Send payment details to collect the advance amount",
         completed: false
       }
     ]
@@ -89,28 +89,28 @@ export const stageConfigs: Record<string, StageConfig> = {
     totalSteps: 5,
     steps: [
       {
-        title: "Create production order",
-        description: "Generate detailed production specifications",
+        title: "Start Production",
+        description: "Begin manufacturing process based on approved specifications",
         completed: false
       },
       {
-        title: "Material procurement",
-        description: "Order and verify receipt of required materials",
+        title: "Quality Check",
+        description: "Perform quality control checks during production",
         completed: false
       },
       {
-        title: "Start manufacturing",
-        description: "Begin the manufacturing process",
+        title: "Assembly",
+        description: "Assemble components according to specifications",
         completed: false
       },
       {
-        title: "Quality inspection",
-        description: "Perform quality checks on manufactured items",
+        title: "Final Inspection",
+        description: "Conduct final quality inspection before packaging",
         completed: false
       },
       {
-        title: "Ready for delivery",
-        description: "Complete production and prepare for delivery",
+        title: "Packaging",
+        description: "Package products securely for transportation",
         completed: false
       }
     ]
@@ -120,39 +120,34 @@ export const stageConfigs: Record<string, StageConfig> = {
     totalSteps: 4,
     steps: [
       {
-        title: "Schedule delivery",
-        description: "Coordinate delivery time with customer",
+        title: "Payment before delivery",
+        description: "Send payment details to collect the amount",
         completed: false
       },
       {
-        title: "Deliver products",
-        description: "Transport and deliver products to site",
+        title: "Delivery Status",
+        description: "Request delivery to send the production to site location",
         completed: false
       },
       {
-        title: "Installation",
-        description: "Complete product installation at site",
+        title: "Installation Status",
+        description: "Details of work order under installation with status",
         completed: false
       },
       {
-        title: "Final inspection",
-        description: "Perform final quality check and get customer sign-off",
+        title: "Final payment",
+        description: "Details of work order that completed the installation process",
         completed: false
       }
     ]
   },
   "Closed": {
     title: "Closed",
-    totalSteps: 2,
+    totalSteps: 1,
     steps: [
       {
-        title: "Collect feedback",
-        description: "Get customer feedback and ratings",
-        completed: false
-      },
-      {
-        title: "Close deal",
-        description: "Complete all documentation and close the deal",
+        title: "Warranty card status",
+        description: "All pending dues are cleared to close the deal. Check notes for more details and QC Checklist",
         completed: false
       }
     ]

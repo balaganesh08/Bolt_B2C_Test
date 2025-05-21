@@ -25,3 +25,25 @@ If you are satisfied with the result, you can finally build the project for rele
 ```
 npm run build
 ```
+
+## Project Structure
+
+The project follows a well-organized directory structure with clear naming conventions to improve maintainability and readability:
+
+```
+src/
+├── apiServices/         # API client and service modules for data fetching
+├── app/                 # Next.js app router components and layouts
+├── components/          # Reusable UI components
+│   ├── dealComponents/  # Deal-specific components
+│   ├── layout/          # Layout components (header, sidebar, etc.)
+│   └── uiElements/      # Basic UI elements (buttons, inputs, etc.)
+├── contextProviders/    # React context providers
+├── features/            # Feature-specific components
+│   ├── layoutTemplates/ # Layout templates for different features
+│   └── pageComponents/  # Page components for different features
+├── pages/               # Next.js pages router components
+├── store/               # Global state management
+├── typeDefinitions/     # TypeScript type definitions
+└── utilities/           # Utility functions and helpers
+```
